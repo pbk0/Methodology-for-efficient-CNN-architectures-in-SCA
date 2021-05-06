@@ -67,3 +67,10 @@ Branch: `master`           |  Branch `attack_fake_1`
 :-------------------------:|:-------------------------:
 ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/ASCAD/N0%3D100/fig/rankASCAD_desync100_400trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_fake_1/ASCAD/N0=100/fig/rankASCAD_desync100_400trs_100att.svg)
 
+
+### DPA-contest v4
+
+Branch: `master`           |  Branch `attack_original`
+:-------------------------:|:-------------------------:
+![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/DPA-contest%20v4/fig/rankDPA-contest_v4_30trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/DPA-contest%20v4/fig/rankDPA-contest_v4_30trs_100att.svg)
+

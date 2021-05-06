@@ -139,22 +139,22 @@ X_attack = X_attack.reshape((X_attack.shape[0], X_attack.shape[1], 1))
 model = cnn_architecture(input_size=input_size, learning_rate=learning_rate)
 model_name="DPA-contest_v4"
 
-print('\n Model name = '+model_name)
-
-
-print("\n############### Starting Training #################\n")
-
-# Record the metrics
-history = train_model(X_profiling[:4000], Y_profiling[:4000], X_profiling[4000:], Y_profiling[4000:], model, DPAv4_trained_models_folder + model_name, epochs=nb_epochs, batch_size=batch_size)
-end=time.time()
-
-print('Execution Time = %d'%(end-start))
-
-print("\n############### Training Done #################\n")
-
-# Save the DL metrics (loss and accuracy)
-with open(history_folder + 'history_' + model_name, 'wb') as file_pi:
-    pickle.dump(history.history, file_pi)
+# print('\n Model name = '+model_name)
+#
+#
+# print("\n############### Starting Training #################\n")
+#
+# # Record the metrics
+# history = train_model(X_profiling[:4000], Y_profiling[:4000], X_profiling[4000:], Y_profiling[4000:], model, DPAv4_trained_models_folder + model_name, epochs=nb_epochs, batch_size=batch_size)
+# end=time.time()
+#
+# print('Execution Time = %d'%(end-start))
+#
+# print("\n############### Training Done #################\n")
+#
+# # Save the DL metrics (loss and accuracy)
+# with open(history_folder + 'history_' + model_name, 'wb') as file_pi:
+#     pickle.dump(history.history, file_pi)
 
 
 #################################################
@@ -168,6 +168,8 @@ with open(history_folder + 'history_' + model_name, 'wb') as file_pi:
 
 print("\n############### Starting Predictions #################\n")
 
+from keras.models import load_model
+model = load_model(DPAv4_trained_models_folder + model_name)
 predictions = model.predict(X_attack)
 
 print("\n############### Predictions Done #################\n")
