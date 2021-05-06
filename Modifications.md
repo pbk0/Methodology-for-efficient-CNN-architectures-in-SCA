@@ -33,5 +33,13 @@ pip install matplotlib
 
 Branch: `master`           |  Branch `attack_original`
 :-------------------------:|:-------------------------:
-![](https://github.com/gabzai/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/AES_HD/fig/rankAES_HD_1500trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/AES_HD/fig/rankAES_HD_1500trs_100att.svg)
+![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/AES_HD/fig/rankAES_HD_1500trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/AES_HD/fig/rankAES_HD_1500trs_100att.svg)
+
+
+
+### AES_RD
+
+Branch: `master`           |  Branch `attack_original`
+:-------------------------:|:-------------------------:
+![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/AES_RD/fig/rankAES_RD_15trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/AES_RD/fig/rankAES_RD_15trs_100att.svg)
 

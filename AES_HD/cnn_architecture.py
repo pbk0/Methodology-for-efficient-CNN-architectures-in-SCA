@@ -169,8 +169,6 @@ from keras.models import load_model
 model = load_model(AESHD_trained_models_folder + model_name)
 predictions = model.predict(X_attack)
 
-predictions = model.predict(X_attack)
-
 print("\n############### Predictions Done #################\n")
 
 np.save(predictions_folder + 'predictions_' + model_name +'.npy', predictions)
