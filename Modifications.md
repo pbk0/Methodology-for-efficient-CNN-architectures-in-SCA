@@ -29,6 +29,8 @@ pip install matplotlib
 
 ## Comparing results
 
+The below results are still not valid as we did not implement `attack_fake_1` that works
+
 ### AES_HD
 
 Branch: `master`           |  Branch `attack_fake_1`
@@ -70,7 +72,7 @@ Branch: `master`           |  Branch `attack_fake_1`
 
 ### DPA-contest v4
 
-Branch: `master`           |  Branch `attack_original`
+Branch: `master`           |  Branch `attack_fake_1`
 :-------------------------:|:-------------------------:
 ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/DPA-contest%20v4/fig/rankDPA-contest_v4_30trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/DPA-contest%20v4/fig/rankDPA-contest_v4_30trs_100att.svg)
 
