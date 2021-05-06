@@ -1,6 +1,6 @@
 ## Modifications
 
-This branch `attack_original` is same as `master` branch.
+This branch `attack_fake_1` is same as `master` branch.
 
 The only difference is that we have commented training code 
 in each experiment and just loaded the already provided model 
@@ -31,39 +31,39 @@ pip install matplotlib
 
 ### AES_HD
 
-Branch: `master`           |  Branch `attack_original`
+Branch: `master`           |  Branch `attack_fake_1`
 :-------------------------:|:-------------------------:
-![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/AES_HD/fig/rankAES_HD_1500trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/AES_HD/fig/rankAES_HD_1500trs_100att.svg)
+![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/AES_HD/fig/rankAES_HD_1500trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_fake_1/AES_HD/fig/rankAES_HD_1500trs_100att.svg)
 
 
 
 ### AES_RD
 
-Branch: `master`           |  Branch `attack_original`
+Branch: `master`           |  Branch `attack_fake_1`
 :-------------------------:|:-------------------------:
-![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/AES_RD/fig/rankAES_RD_15trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/AES_RD/fig/rankAES_RD_15trs_100att.svg)
+![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/AES_RD/fig/rankAES_RD_15trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_fake_1/AES_RD/fig/rankAES_RD_15trs_100att.svg)
 
 
 
 ### ASCAD desync=0
 
-Branch: `master`           |  Branch `attack_original`
+Branch: `master`           |  Branch `attack_fake_1`
 :-------------------------:|:-------------------------:
-![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/ASCAD/N0%3D0/fig/rankASCAD_desync0_300trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/ASCAD/N0%3D0/fig/rankASCAD_desync0_300trs_100att.svg)
+![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/ASCAD/N0%3D0/fig/rankASCAD_desync0_300trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_fake_1/ASCAD/N0%3D0/fig/rankASCAD_desync0_300trs_100att.svg)
 
 
 
 ### ASCAD desync=50
 
-Branch: `master`           |  Branch `attack_original`
+Branch: `master`           |  Branch `attack_fake_1`
 :-------------------------:|:-------------------------:
-![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/ASCAD/N0%3D50/fig/rankASCAD_desync50_400trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/ASCAD/N0%3D50/fig/rankASCAD_desync50_400trs_100att.svg)
+![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/ASCAD/N0%3D50/fig/rankASCAD_desync50_400trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_fake_1/ASCAD/N0%3D50/fig/rankASCAD_desync50_400trs_100att.svg)
 
 
 
 ### ASCAD desync=100
 
-Branch: `master`           |  Branch `attack_original`
+Branch: `master`           |  Branch `attack_fake_1`
 :-------------------------:|:-------------------------:
-![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/ASCAD/N0%3D100/fig/rankASCAD_desync100_400trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/ASCAD/N0=100/fig/rankASCAD_desync100_400trs_100att.svg)
+![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/ASCAD/N0%3D100/fig/rankASCAD_desync100_400trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_fake_1/ASCAD/N0=100/fig/rankASCAD_desync100_400trs_100att.svg)
 
