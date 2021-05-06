@@ -141,19 +141,19 @@ model_name="AES_HD"
 print('\n Model name = '+model_name)
 
 
-print("\n############### Starting Training #################\n")
-
-# Record the metrics
-history = train_model(X_profiling[:45000], Y_profiling[:45000], X_profiling[45000:], Y_profiling[45000:], model, AESHD_trained_models_folder + model_name, epochs=nb_epochs, batch_size=batch_size)
-end=time.time()
-
-print('Temps execution = %d'%(end-start))
-
-print("\n############### Training Done #################\n")
-
-# Save the metrics
-with open(history_folder + 'history_' + model_name, 'wb') as file_pi:
-    pickle.dump(history.history, file_pi)
+# print("\n############### Starting Training #################\n")
+#
+# # Record the metrics
+# history = train_model(X_profiling[:45000], Y_profiling[:45000], X_profiling[45000:], Y_profiling[45000:], model, AESHD_trained_models_folder + model_name, epochs=nb_epochs, batch_size=batch_size)
+# end=time.time()
+#
+# print('Temps execution = %d'%(end-start))
+#
+# print("\n############### Training Done #################\n")
+#
+# # Save the metrics
+# with open(history_folder + 'history_' + model_name, 'wb') as file_pi:
+#     pickle.dump(history.history, file_pi)
 
 #################################################
 #################################################
@@ -164,6 +164,10 @@ with open(history_folder + 'history_' + model_name, 'wb') as file_pi:
 #################################################
 
 print("\n############### Starting Predictions #################\n")
+
+from keras.models import load_model
+model = load_model(AESHD_trained_models_folder + model_name)
+predictions = model.predict(X_attack)
 
 predictions = model.predict(X_attack)
 
