@@ -65,5 +65,5 @@ Branch: `master`           |  Branch `attack_original`
 
 Branch: `master`           |  Branch `attack_original`
 :-------------------------:|:-------------------------:
-![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/ASCAD/N0%3D100/fig/rankASCAD_desync50_400trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/ASCAD/N0%3D100/fig/rankASCAD_desync50_400trs_100att.svg)
+![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/master/ASCAD/N0%3D100/fig/rankASCAD_desync100_400trs_100att.svg)  |  ![](https://github.com/SpikingNeuron/Methodology-for-efficient-CNN-architectures-in-SCA/blob/attack_original/ASCAD/N0=100/fig/rankASCAD_desync100_400trs_100att.svg)
 
