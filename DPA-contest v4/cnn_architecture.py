@@ -18,7 +18,7 @@ from matplotlib.pyplot import figure
 if len(sys.argv) != 2:
     raise Exception("Please supply training set id to train on ...")
 training_set_id = sys.argv[1]
-if training_set_id not in ['all', '1234', '0and11']:
+if training_set_id not in ['all', '0123', '0and11']:
     training_set_id = f"{int(training_set_id):02d}"
 
 ### Scripts based on ASCAD github : https://github.com/ANSSI-FR/ASCAD
@@ -122,7 +122,7 @@ def fetch_data(_set_id):
             _X.append(X_profiling)
             _Y.append(Y_profiling)
         return (np.concatenate(_X, axis=0), np.concatenate(_Y, axis=0))
-    elif _set_id == '1234':
+    elif _set_id == '0123':
         _X = []
         _Y = []
         for _i in range(4):
@@ -185,7 +185,7 @@ print("\n############### Starting Training #################\n")
 # Record the metrics
 if training_set_id == 'all':
     train_examples = 4000 * 16
-elif training_set_id == '1234':
+elif training_set_id == '0123':
     train_examples = 4000 * 4
 else:
     train_examples = 4000
@@ -275,7 +275,7 @@ for set_id in [f"{_:02d}" for _ in range(16)]:
         plot_type = '-'
     else:
         plot_type = ':'
-        if training_set_id == '1234':
+        if training_set_id == '0123':
             if int(set_id) < 4:
                 plot_type = '-'
         if training_set_id == '0and11':
