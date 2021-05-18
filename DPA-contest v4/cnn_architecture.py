@@ -18,7 +18,7 @@ from matplotlib.pyplot import figure
 if len(sys.argv) != 2:
     raise Exception("Please supply training set id to train on ...")
 training_set_id = sys.argv[1]
-if training_set_id not in ['all', '0123', '0and11']:
+if training_set_id not in ['all', '0123', '0and11', '3good', '3bad']:
     training_set_id = f"{int(training_set_id):02d}"
 
 ### Scripts based on ASCAD github : https://github.com/ANSSI-FR/ASCAD
@@ -134,6 +134,22 @@ def fetch_data(_set_id):
         _X = []
         _Y = []
         for _i in [0, 11]:
+            (X_profiling, Y_profiling) = fetch_data(_set_id=f"{_i:02d}")
+            _X.append(X_profiling)
+            _Y.append(Y_profiling)
+        return (np.concatenate(_X, axis=0), np.concatenate(_Y, axis=0))
+    elif _set_id == '3good':
+        _X = []
+        _Y = []
+        for _i in [1, 12, 13]:
+            (X_profiling, Y_profiling) = fetch_data(_set_id=f"{_i:02d}")
+            _X.append(X_profiling)
+            _Y.append(Y_profiling)
+        return (np.concatenate(_X, axis=0), np.concatenate(_Y, axis=0))
+    elif _set_id == '3bad':
+        _X = []
+        _Y = []
+        for _i in [10, 11, 15]:
             (X_profiling, Y_profiling) = fetch_data(_set_id=f"{_i:02d}")
             _X.append(X_profiling)
             _Y.append(Y_profiling)
@@ -278,6 +294,12 @@ for set_id in [f"{_:02d}" for _ in range(16)]:
                 plot_type = '-'
         if training_set_id == 'all':
             plot_type = '-'
+        if training_set_id == '3good':
+            if int(set_id) in [1, 12, 13]:
+                plot_type = '-'
+        if training_set_id == '3bad':
+            if int(set_id) in [10, 11, 15]:
+                plot_type = '-'
 
     line_plot, = plot.plot(avg_rank, plot_type, label=f'set_{set_id} (key {real_key[0]:03d})')
 

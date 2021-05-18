@@ -77,3 +77,11 @@ pip install matplotlib
 ## Train on a mix of set_00 and set_11 dataset's and attack on all 16 datasets
 
 ![](./DPA-contest%20v4/fig/rank_all_sets_with_100_attacks_for_model_DPA-contest_v4_trained_on_set_0and11.svg)
+
+## Train on a mix of three datasets that generalize well i.e. set_01, set_12 and set_13 dataset's and attack on all 16 datasets
+
+![](./DPA-contest%20v4/fig/rank_all_sets_with_100_attacks_for_model_DPA-contest_v4_trained_on_set_3good.svg)
+
+## Train on a mix of three datasets that generalize bad i.e. set_10, set_11 and set_15 dataset's and attack on all 16 datasets
+
+![](./DPA-contest%20v4/fig/rank_all_sets_with_100_attacks_for_model_DPA-contest_v4_trained_on_set_3bad.svg)
