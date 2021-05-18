@@ -73,3 +73,7 @@ pip install matplotlib
 ## Train on a mix of first four dataset's and attack on all 16 datasets
 
 ![](./DPA-contest%20v4/fig/rank_all_sets_with_100_attacks_for_model_DPA-contest_v4_trained_on_set_1234.svg)
+
+## Train on a mix of set_00 and set_11 dataset's and attack on all 16 datasets
+
+![](./DPA-contest%20v4/fig/rank_all_sets_with_100_attacks_for_model_DPA-contest_v4_trained_on_set_0and11.svg)
