@@ -149,6 +149,7 @@ def fetch_data(_set_id):
 # Shuffle data
 (X_profiling, Y_profiling) = fetch_data(_set_id=training_set_id)
 (X_profiling, Y_profiling) = shuffle_data(X_profiling, Y_profiling)
+(X_profiling, Y_profiling) = (X_profiling[:4500], Y_profiling[:4500])
 
 X_profiling = X_profiling.astype('float32')
 # X_attack = X_attack.astype('float32')
@@ -183,17 +184,11 @@ print('\n Model name = '+model_name)
 print("\n############### Starting Training #################\n")
 
 # Record the metrics
-if training_set_id == 'all':
-    train_examples = 4000 * 16
-elif training_set_id == '0123':
-    train_examples = 4000 * 4
-else:
-    train_examples = 4000
 history = train_model(
-    X_profiling[:train_examples],
-    Y_profiling[:train_examples],
-    X_profiling[train_examples:],
-    Y_profiling[train_examples:],
+    X_profiling[:4000],
+    Y_profiling[:4000],
+    X_profiling[4000:],
+    Y_profiling[4000:],
     model,
     DPAv4_trained_models_folder + model_name,
     epochs=nb_epochs,
@@ -281,6 +276,8 @@ for set_id in [f"{_:02d}" for _ in range(16)]:
         if training_set_id == '0and11':
             if int(set_id) in [0, 11]:
                 plot_type = '-'
+        if training_set_id == 'all':
+            plot_type = '-'
 
     line_plot, = plot.plot(avg_rank, plot_type, label=f'set_{set_id} (key {real_key[0]:03d})')
 
