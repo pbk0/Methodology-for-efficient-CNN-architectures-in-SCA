@@ -30,20 +30,40 @@ def shuffle_data(profiling_x,label_y):
     shuffled_y = np.array(shuffled_y)
     return (shuffled_x, shuffled_y)
 
+
+def horizontal_standardization_original(X_profiling, X_attack):
+    mn = np.repeat(np.mean(X_profiling, axis=1, keepdims=True), X_profiling.shape[1], axis=1)
+    std = np.repeat(np.std(X_profiling, axis=1, keepdims=True), X_profiling.shape[1], axis=1)
+    X_profiling_processed = (X_profiling - mn) / std
+
+    mn = np.repeat(np.mean(X_attack, axis=1, keepdims=True), X_attack.shape[1], axis=1)
+    std = np.repeat(np.std(X_attack, axis=1, keepdims=True), X_attack.shape[1], axis=1)
+    X_attack_processed = (X_attack - mn) / std
+
+    return X_profiling_processed, X_attack_processed
+
+
+def horizontal_standardization_modified(X_profiling, X_attack):
+    mn = np.mean(X_profiling)
+    std = np.std(X_profiling)
+
+    X_profiling_processed = (X_profiling - mn) / std
+    X_attack_processed = (X_attack - mn) / std
+
+    return X_profiling_processed, X_attack_processed
+
 ### CNN Best model
 def cnn_architecture(input_size=700,learning_rate=0.00001,classes=256):
-
-        # Personal design
         input_shape = (input_size,1)
         img_input = Input(shape=input_shape)
 
         # 1st convolutional block
-        x = Conv1D(32, 1, kernel_initializer='he_uniform', activation='selu', padding='same', name='block1_conv1')(img_input)
-        x = BatchNormalization()(x)
-        x = AveragePooling1D(2, strides=2, name='block1_pool')(x)
+        # x = Conv1D(32, 1, kernel_initializer='he_uniform', activation='selu', padding='same', name='block1_conv1')(img_input)
+        # x = BatchNormalization()(x)
+        x = AveragePooling1D(2, strides=2, name='block1_pool')(img_input)
 
         # 2nd convolutional block
-        x = Conv1D(64, 50, kernel_initializer='he_uniform', activation='selu', padding='same', name='block2_conv1')(x)
+        x = Conv1D(64, 15, kernel_initializer='he_uniform', activation='selu', padding='same', name='block2_conv1')(x)
         x = BatchNormalization()(x)
         x = AveragePooling1D(50, strides=50, name='block2_pool')(x)
 
@@ -64,7 +84,7 @@ def cnn_architecture(input_size=700,learning_rate=0.00001,classes=256):
 
         # Create model
         inputs = img_input
-        model = Model(inputs, x, name='cnn_best')
+        model = Model(inputs, x, name='simplified ascad_N100 filter15')
         optimizer = Adam(lr=learning_rate)
         model.compile(loss='categorical_crossentropy',optimizer=optimizer, metrics=['accuracy'])
         return model
@@ -134,9 +154,9 @@ predictions_folder = root+"model_predictions/"
 
 # Choose the name of the model
 nb_epochs = 50
-batch_size = 256
+batch_size = 50
 input_size = 700
-learning_rate = 1e-2
+learning_rate = 5e-3
 nb_traces_attacks = 400
 nb_attacks = 100
 real_key = np.load(ASCAD_data_folder + "key.npy")
@@ -148,6 +168,9 @@ start = time.time()
 
 # Shuffle data
 (X_profiling, Y_profiling) = shuffle_data(X_profiling, Y_profiling)
+
+# normalize
+X_profiling, X_attack = horizontal_standardization_modified(X_profiling, X_attack)
 
 X_profiling = X_profiling.astype('float32')
 X_attack = X_attack.astype('float32')
