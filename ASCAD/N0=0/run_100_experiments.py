@@ -44,7 +44,6 @@ for i in range(100):
     print("... Save results")
     _save_dir.mkdir()
     shutil.copy(_model_file, _save_dir / _model_file.name)
-    shutil.copy(_fig_file, _save_dir / _fig_file.name)
     shutil.copy(_predictions_file, _save_dir / _predictions_file.name)
     shutil.copy(_avg_rank_file, _save_dir / _avg_rank_file.name)
     shutil.copy(_history_file, _save_dir / _history_file.name)
