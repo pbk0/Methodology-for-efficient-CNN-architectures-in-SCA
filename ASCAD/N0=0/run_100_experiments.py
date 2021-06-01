@@ -23,7 +23,7 @@ for i in range(100):
 
     print("... Cleaning")
     _model_file = RESULT_DIR / "ASCAD_trained_models/ASCAD_desync0"
-    _fig_file = RESULT_DIR / "fig/rankASCAD_desync0_300trs_100att.svg"
+    _fig_file = RESULT_DIR / "fig/rankASCAD_desync0_10000trs_100att.svg"
     _predictions_file = RESULT_DIR / "model_predictions/predictions_ASCAD_desync0.npy"
     _avg_rank_file = RESULT_DIR / "model_predictions/avg_rank_ASCAD_desync0.npy"
     _history_file = RESULT_DIR / "training_history/history_ASCAD_desync0"
