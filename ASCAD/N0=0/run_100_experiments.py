@@ -18,7 +18,6 @@ for i in range(100):
     if _save_dir.exists():
         print(f"Skipping experiment {i}")
         continue
-    _save_dir.mkdir()
 
     print(f"Performing experiment {i}")
 
@@ -43,6 +42,7 @@ for i in range(100):
     os.system("python cnn_architecture.py")
 
     print("... Save results")
+    _save_dir.mkdir()
     shutil.copy(_model_file, _save_dir / _model_file.name)
     shutil.copy(_fig_file, _save_dir / _fig_file.name)
     shutil.copy(_predictions_file, _save_dir / _predictions_file.name)
