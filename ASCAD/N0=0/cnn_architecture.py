@@ -211,8 +211,9 @@ np.save(predictions_folder + 'predictions_' + model_name +'.npy', predictions)
 #################################################
 
 print("\n############### Starting Attack on Test Set #################\n")
-
+nb_traces_attacks = 10000
 avg_rank = perform_attacks(nb_traces_attacks, predictions, nb_attacks, plt=plt_attack, key=real_key, byte=2, filename=model_name)
+np.save(predictions_folder + 'avg_rank_' + model_name +'.npy', avg_rank)
 
 print("\n t_GE = ")
 print(np.where(avg_rank<=0))
