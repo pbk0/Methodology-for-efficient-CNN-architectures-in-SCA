@@ -1,14 +1,16 @@
 import pathlib
 import numpy as np
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 from matplotlib import colors
+import plotly.express as px
 from matplotlib.ticker import PercentFormatter
 
 
 RESULTS_DIR = pathlib.Path("save_results")
 
+ranks_fig = go.Figure()
 _min_traces_per_experiment = []
-_experiments_that_did_not_converge = 0
 for _dir in RESULTS_DIR.iterdir():
     _experiment_id = int(_dir.name)
     _ranks = np.load(_dir / "avg_rank_ASCAD_desync0.npy")
@@ -18,15 +20,35 @@ for _dir in RESULTS_DIR.iterdir():
             _traces_with_rank_0[0]
         )
     else:
-        _experiments_that_did_not_converge += 1
-
-plt.hist(np.asarray(_min_traces_per_experiment), bins=100)
-plt.show()
-
-if _experiments_that_did_not_converge > 0:
-    print(
-        f"Note that {_experiments_that_did_not_converge} experiments did not converge"
+        _min_traces_per_experiment.append(
+            np.inf
+        )
+    ranks_fig.add_trace(
+        go.Scatter(
+            x=np.arange(len(_ranks)),
+            y=_ranks,
+            mode='lines',
+            name=f"exp_{_experiment_id:03d}"
+        )
     )
+
+ranks_fig.show()
+
+_experiments_that_did_not_converge = [i for i, v in enumerate(_min_traces_per_experiment) if v == np.inf]
+_min_traces_for_converged_experiments = [v for i, v in enumerate(_min_traces_per_experiment) if v != np.inf]
+plt.hist(np.asarray(_min_traces_for_converged_experiments), bins=100)
+plt.show()
+if bool(_experiments_that_did_not_converge):
+    print(
+        f"Note that {len(_experiments_that_did_not_converge)} experiments did not converge"
+    )
+    print(_experiments_that_did_not_converge)
+
+
+_sorted_ids = np.argsort(_min_traces_per_experiment)
+
+for _id in _sorted_ids:
+    print("experiment", f"{_id:03d}", ":: min traces", _min_traces_per_experiment[_id])
 
 
 
