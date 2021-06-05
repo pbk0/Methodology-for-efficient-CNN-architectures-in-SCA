@@ -7,7 +7,7 @@ import plotly.express as px
 from matplotlib.ticker import PercentFormatter
 
 
-RESULTS_DIR = pathlib.Path("save_results")
+RESULTS_DIR = pathlib.Path("save_results_original")
 
 ranks_fig_non_converged = go.Figure()
 ranks_fig_converged = go.Figure()
