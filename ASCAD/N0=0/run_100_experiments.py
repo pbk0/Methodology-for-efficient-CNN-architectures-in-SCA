@@ -7,7 +7,7 @@ import numpy as np
 from IPython.display import SVG
 print(tensorflow.__version__)
 
-SAVE_DIR = pathlib.Path("save_results_original")
+SAVE_DIR = pathlib.Path("save_results_with_early_stopping")
 SAVE_DIR.mkdir(exist_ok=True, parents=True)
 RESULT_DIR = pathlib.Path(".")
 

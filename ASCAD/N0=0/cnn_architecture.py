@@ -89,7 +89,7 @@ def train_model(X_profiling, Y_profiling, X_test, Y_test, model, save_file_name,
     check_file_exists(os.path.dirname(save_file_name))
 
     # Save model every epoch
-    save_model = ModelCheckpoint(save_file_name)
+    save_model = ModelCheckpoint(save_file_name, monitor='val_loss', mode='min', verbose=1, save_best_only=True)
 
     # Get the input layer shape
     input_layer_shape = model.get_layer(index=0).input_shape
