@@ -20,6 +20,11 @@ ranks_fig_converged = go.Figure(
         title=go.layout.Title(text="Average Rank (converged)")
     )
 )
+ranks_fig_on_all_experiments = go.Figure(
+    layout=go.Layout(
+        title=go.layout.Title(text="Rank with error band over all experiments")
+    )
+)
 train_loss_fig_non_converged = go.Figure(
     layout=go.Layout(
         title=go.layout.Title(text="Train Loss (non-converged)")
@@ -41,10 +46,12 @@ val_loss_fig_converged = go.Figure(
     )
 )
 _min_traces_per_experiment = []
+_all_ranks = []
 for _experiment_id in range(100):
     _dir = RESULTS_DIR / str(_experiment_id)
     # noinspection PyTypeChecker
     _ranks = np.load(_dir / "avg_rank_ASCAD_desync0.npy")
+    _all_ranks.append(_ranks)
     with open((_dir / 'history_ASCAD_desync0').as_posix(), 'rb') as file_pi:
         print(_dir / 'history_ASCAD_desync0')
         _history = pickle.load(file_pi)
@@ -108,12 +115,22 @@ for _experiment_id in range(100):
             )
         )
 
+
+ranks_fig_on_all_experiments.add_trace(
+    go.Scatter(
+        x=np.arange(len(_all_ranks[0])),
+        y=np.mean(_all_ranks, axis=0),
+        mode='lines',
+        name=f"all_experiments"
+    )
+)
 ranks_fig_non_converged.show()
 ranks_fig_converged.show()
 train_loss_fig_non_converged.show()
 train_loss_fig_converged.show()
 val_loss_fig_non_converged.show()
 val_loss_fig_converged.show()
+ranks_fig_on_all_experiments.show()
 
 _experiments_that_did_not_converge = [i for i, v in enumerate(_min_traces_per_experiment) if v == np.inf]
 _min_traces_for_converged_experiments = [v for i, v in enumerate(_min_traces_per_experiment) if v != np.inf]
